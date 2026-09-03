@@ -1,0 +1,62 @@
+{
+  "timeZone": "Asia/Bangkok",
+  "dependencies": {
+  },
+  "webapp": {
+    "access": "MYSELF",
+    "executeAs": "USER_DEPLOYING"
+  },
+  "exceptionLogging": "STACKDRIVER",
+  "runtimeVersion": "V8",
+  "sheets": {
+    "macros": [{
+      "menuName": "Data Barang",
+      "functionName": "DataBarang",
+      "defaultShortcut": "Ctrl+Alt+Shift+1"
+    }, {
+      "menuName": "Delete Row",
+      "functionName": "DeleteRow"
+    }, {
+      "menuName": "Data Barang (1)",
+      "functionName": "myFunction1",
+      "defaultShortcut": "Ctrl+Alt+Shift+1"
+    }, {
+      "menuName": "MyFunction1",
+      "functionName": "MyFunction1"
+    }, {
+      "menuName": "Master 1",
+      "functionName": "DataBarang1",
+      "defaultShortcut": "Ctrl+Alt+Shift+1"
+    }, {
+      "menuName": "Stock Movement 1",
+      "functionName": "StockMovement1",
+      "defaultShortcut": "Ctrl+Alt+Shift+2"
+    }, {
+      "menuName": "Stock Movement 1_2",
+      "functionName": "StockMovement1_2"
+    }, {
+      "menuName": "Master1",
+      "functionName": "Master1",
+      "defaultShortcut": "Ctrl+Alt+Shift+1"
+    }, {
+      "menuName": "Master2",
+      "functionName": "Master21",
+      "defaultShortcut": "Ctrl+Alt+Shift+2"
+    }, {
+      "menuName": "HideGM",
+      "functionName": "HideGM"
+    }, {
+      "menuName": "ExpandGM",
+      "functionName": "ExpandGM"
+    }, {
+      "menuName": "ExpandGM",
+      "functionName": "ExpandGM1"
+    }, {
+      "menuName": "ExpandRP",
+      "functionName": "ExpandRP"
+    }, {
+      "menuName": "ExpandGM 1",
+      "functionName": "ExpandGM1"
+    }]
+  }
+}
