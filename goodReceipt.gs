@@ -9,24 +9,34 @@ function RawDump_goodReceipt() {
   var tabName = "goodreceipt";
   var sheet = ss.getSheetByName(tabName) || ss.insertSheet(tabName);
 
-  // 1. Tembak Halaman Induk Good Receipt
-  var urlInduk = "https://pro.ireappos.com/goodreceipt?storeid=" + f.storeId + "&startdate=" + f.tglAwal + "&enddate=" + f.tglAkhir;
+// 1. Tembak Halaman Induk Good Receipt (POST Payload Resmi)
+  var targetStoreId = (!f.storeId || f.storeId === "ALL" || f.storeId === "") ? "0" : f.storeId;
+  var urlInduk = "https://pro.ireappos.com/goodreceipt";
+  
+  var payload = {
+    "store": targetStoreId,
+    "daterange": f.tglAwal + " - " + f.tglAkhir,
+    "startdate": f.tglAwal,
+    "enddate": f.tglAkhir
+  };
+
   var resInduk = UrlFetchApp.fetch(urlInduk, {
-    method: "get",
+    method: "post",
     headers: {
       "User-Agent": HEADERS_TOPENG["User-Agent"],
       "Cookie": COOKIE_SAKTI,
       "Referer": "https://pro.ireappos.com/goodreceipt"
     },
+    payload: payload,
     muteHttpExceptions: true
   });
 
   if (resInduk.getResponseCode() === 302) {
     Logger.log("⚠️ Sesi mati, ritual login ulang...");
     loginCentratireap();
-    return RawDump_GoodReceipt();
+    return RawDump_goodReceipt();
   }
-
+  
   var html = resInduk.getContentText();
   var tbodyMatch = html.match(/<tbody[^>]*>([\s\S]*?)<\/tbody>/i);
   if (!tbodyMatch) {

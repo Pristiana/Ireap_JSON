@@ -9,17 +9,33 @@ function RawDump_goodIssue() {
   var tabName = "goodissue";
   var sheet = ss.getSheetByName(tabName) || ss.insertSheet(tabName);
 
-  // 1. Tembak Halaman Induk Good Issue
-  var urlInduk = "https://pro.ireappos.com/goodissue?storeid=" + f.storeId + "&startdate=" + f.tglAwal + "&enddate=" + f.tglAkhir;
+  // 1. Tembak Halaman Induk Good Issue (POST Payload Resmi)
+  var targetStoreId = (!f.storeId || f.storeId === "ALL" || f.storeId === "") ? "0" : f.storeId;
+  var urlInduk = "https://pro.ireappos.com/goodissue";
+  
+  var payload = {
+    "store": targetStoreId,
+    "daterange": f.tglAwal + " - " + f.tglAkhir,
+    "startdate": f.tglAwal,
+    "enddate": f.tglAkhir
+  };
+
   var resInduk = UrlFetchApp.fetch(urlInduk, {
-    method: "get",
+    method: "post",
     headers: {
       "User-Agent": HEADERS_TOPENG["User-Agent"],
       "Cookie": COOKIE_SAKTI,
       "Referer": "https://pro.ireappos.com/goodissue"
     },
+    payload: payload,
     muteHttpExceptions: true
   });
+
+  if (resInduk.getResponseCode() === 302) {
+    Logger.log("⚠️ Sesi mati, ritual login ulang...");
+    loginCentratireap();
+    return RawDump_goodIssue();
+  }
 
   if (resInduk.getResponseCode() === 302) {
     Logger.log("⚠️ Sesi mati, ritual login ulang...");
