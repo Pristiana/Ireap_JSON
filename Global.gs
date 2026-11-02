@@ -21,8 +21,8 @@ var HARI_MUNDUR = 1;
 
 // Mode 2: Kunci tanggal manual (Kosongkan "" jika ingin otomatis pakai HARI_MUNDUR)
 // Contoh isi: "2026/08/01"
-var MANUAL_START_DATE = ""; 
-var MANUAL_END_DATE = ""; 
+var MANUAL_START_DATE = "2026/10/03"; 
+var MANUAL_END_DATE = "2026/10/31"; 
 
 // 🗺️ KAMUS ID TOKO iREAP
 var STORE_ID_MAP = {

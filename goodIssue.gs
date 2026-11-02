@@ -102,7 +102,7 @@ function RawDump_goodIssue() {
   });
 
   // 3. Tumpahkan Data ke Spreadsheet
-  var headersUI = ["Store", "Date", "Reason/Supplier", "Good Issue No", "Total Qty", "Total Amount IDR", "Total Cost IDR", "Created By", "Doc ID"];
+  var headersUI = ["Store", "Date", "Reason/Supplier", "Good Issue No.", "Total Qty", "Total Amount IDR", "Total Cost IDR", "Created By", "Doc ID"];
   
   sheet.clear();
   // Warna coral/merah pudar biar beda vibe sama receipt

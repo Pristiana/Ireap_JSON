@@ -36,7 +36,7 @@ function RawDump_goodReceipt() {
     loginCentratireap();
     return RawDump_goodReceipt();
   }
-  
+
   var html = resInduk.getContentText();
   var tbodyMatch = html.match(/<tbody[^>]*>([\s\S]*?)<\/tbody>/i);
   if (!tbodyMatch) {
@@ -95,7 +95,7 @@ function RawDump_goodReceipt() {
   });
 
   // 3. Tumpahkan Data ke Spreadsheet
-  var headersUI = ["Store", "Date", "Supplier", "Good Receipt No", "Total Qty", "Total Retail Amount IDR", "Total Cost IDR", "Created By", "Doc ID"];
+  var headersUI = ["Store", "Date", "Supplier", "Good Receipt No.", "Total Qty", "Total Retail Amount IDR", "Total Cost IDR", "Created By", "Doc ID"];
   
   sheet.clear();
   sheet.getRange(1, 1, 1, headersUI.length).setValues([headersUI]).setFontWeight("bold").setBackground("#fff2cc"); // Warna kuning soft biar beda

@@ -1,5 +1,5 @@
 // 🚚 TAB: stockpos (SUPPORT SINGLE CABANG & AUTO-LOOP ALL STORE)
-function RawDump_Stockpos() {
+function RawDump_StockPOS() {
   Logger.log("=================================================");
   Logger.log("🚀 [RAW DUMP] Memproses tab: [stockpos]...");
   if (!COOKIE_SAKTI) loginCentratireap();
